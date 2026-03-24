@@ -1,0 +1,458 @@
+/* ============================================
+   Denali Cottage - Rental Listing
+   Quirky & fun vibes for friends & fam
+   ============================================ */
+
+:root {
+  --color-cream: #fef9f3;
+  --color-peach: #f4a261;
+  --color-coral: #e76f51;
+  --color-teal: #2a9d8f;
+  --color-teal-dark: #1d7a6f;
+  --color-charcoal: #264653;
+  --color-warm-gray: #5a6b63;
+  --color-light-gray: #e9ecef;
+  --color-white: #ffffff;
+  --font-display: 'Fredoka', sans-serif;
+  --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  --shadow-soft: 0 4px 20px rgba(38, 70, 83, 0.1);
+  --shadow-fun: 0 6px 0 rgba(38, 70, 83, 0.15);
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-charcoal);
+  background: var(--color-cream);
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.25rem 0;
+  background: rgba(254, 249, 243, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 3px solid var(--color-teal);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  text-decoration: none;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: var(--color-warm-gray);
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 85vh;
+  min-height: 500px;
+  overflow: hidden;
+  margin-top: 4rem;
+}
+
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(38, 70, 83, 0.75) 0%, transparent 50%);
+  display: flex;
+  align-items: flex-end;
+  z-index: 2;
+}
+
+.hero .container {
+  padding-bottom: 3rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.98);
+  margin-top: 0.75rem;
+  max-width: 480px;
+  font-weight: 500;
+}
+
+/* Rental CTA Banner */
+.rental-cta {
+  background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-teal-dark) 100%);
+  color: white;
+  padding: 2.5rem 0;
+}
+
+.cta-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.cta-label {
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.cta-price {
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 600;
+  margin-top: 0.35rem;
+}
+
+.cta-price span {
+  font-size: 1.25rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.cta-note {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.25rem;
+}
+
+.cta-details ul {
+  list-style: none;
+}
+
+.cta-details li {
+  padding: 0.35rem 0;
+  font-size: 1rem;
+}
+
+.cta-details li strong {
+  font-weight: 500;
+}
+
+/* Gallery */
+.gallery {
+  padding: 4rem 0;
+  background: var(--color-white);
+}
+
+.gallery h2,
+.details h2,
+.location h2 {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.rental-summary h2 {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin-bottom: 1.5rem;
+}
+
+.section-note {
+  font-size: 0.95rem;
+  color: var(--color-warm-gray);
+  margin-bottom: 2rem;
+}
+
+.section-note a {
+  color: var(--color-teal);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.section-note a:hover {
+  color: var(--color-teal-dark);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.gallery-item {
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 3px solid var(--color-charcoal);
+  box-shadow: var(--shadow-fun);
+}
+
+/* Details */
+.details {
+  padding: 4rem 0;
+  background: var(--color-cream);
+}
+
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.detail-card {
+  background: var(--color-white);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  border: 3px solid var(--color-charcoal);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-fun);
+}
+
+.detail-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-teal);
+}
+
+.detail-label {
+  font-size: 0.9rem;
+  color: var(--color-warm-gray);
+  margin-top: 0.25rem;
+}
+
+.details-content {
+  max-width: 700px;
+}
+
+.details-content p {
+  font-size: 1.05rem;
+  color: var(--color-charcoal);
+  line-height: 1.7;
+}
+
+/* Location */
+.location {
+  padding: 4rem 0;
+  background: var(--color-white);
+}
+
+
+.location-intro {
+  font-size: 1.1rem;
+  color: var(--color-warm-gray);
+  margin-bottom: 2.5rem;
+  max-width: 650px;
+}
+
+.commute-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.commute-item {
+  background: var(--color-cream);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-charcoal);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.commute-item:hover {
+  background: var(--color-white);
+  transform: scale(1.02);
+}
+
+.commute-item--full {
+  grid-column: span 2;
+}
+
+.commute-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.commute-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin-bottom: 0.35rem;
+}
+
+.commute-item p {
+  font-size: 0.95rem;
+  color: var(--color-warm-gray);
+}
+
+/* Rental Summary */
+.rental-summary {
+  padding: 4rem 0;
+  background: var(--color-cream);
+}
+
+.summary-box {
+  background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-teal-dark) 100%);
+  color: white;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  max-width: 600px;
+  box-shadow: var(--shadow-fun);
+  border: 4px solid var(--color-charcoal);
+}
+
+.summary-price {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.summary-price span {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.summary-box p {
+  margin-bottom: 0.5rem;
+}
+
+.summary-contact {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  font-style: italic;
+}
+
+/* Footer */
+.footer {
+  padding: 2rem 0;
+  background: var(--color-charcoal);
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+}
+
+.footer p {
+  font-size: 0.95rem;
+}
+
+.footer-note {
+  margin-top: 0.5rem;
+}
+
+.footer a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer a:hover {
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .commute-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .commute-item--full {
+    grid-column: span 1;
+  }
+
+  .cta-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-price {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 70vh;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+}
